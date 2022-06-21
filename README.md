@@ -6,7 +6,7 @@
 ![overview](images/overview.png)
 
 
-### Components of ASGRL
+### A. Components of ASGRL
 - **Q-Learning Agent**
 	- Tabular Q-Learning is used to implement the low-level policy for each skill.
 	- File: [q\_learning.py](https://github.com/GuanSuns/ASGRL/blob/main/learning_agents/q_learning/q_learning.py)
@@ -26,7 +26,7 @@
 	- A Diversity-Q-Learning agent maintains a set of Q-Learning agents
 
 	
-### Running the Code
+### B. Running the Code
 - **Scripts**
 	- [q\_train\_mario.py](https://github.com/GuanSuns/ASGRL/blob/main/q_train_mario.py)
 	- [q\_curriculum\_train\_mario.py](https://github.com/GuanSuns/ASGRL/blob/main/q_curriculum_train_mario.py)
@@ -36,13 +36,13 @@
 	- The logging system is only activated when the flag ``--use-wandb`` is added, e.g., ``python q_train_mario.py --use-wandb``
 
 	
-### Customize the System
+### C. Customize the System
 - To customize the system, you can take our current code (based on the [Mario](https://github.com/GuanSuns/ASGRL/blob/main/env_mario/env_mario.py) environment) as example. 
 - The example config can be found at the [config](https://github.com/GuanSuns/ASGRL/tree/main/config) directory.
 - Note that our implementation separates the symbolic planning part and the reinforcement learning part, and this repository only contains the code for the reinforcement learning. So the extracted landmark sequences need to be manually provided in the config class. 
-- To apply ASGRL in a new environments, you also need to provide the function that tells whether certain subgoal/landmark is satisfied. See the ``check_skill_success`` function in the class ``Hierarchical_Diversity_RL`` or ``Curriculum_Hierarchical_Diversity_RL`` for our Mario domain.
+- To apply ASGRL in new environments, you also need to provide the function that tells whether certain subgoal/landmark is satisfied. See the ``check_skill_success`` function in the class ``Hierarchical_Diversity_RL`` or ``Curriculum_Hierarchical_Diversity_RL`` for our Mario domain.
 
 
-### The Mario Environment 
+### D. Visualization of the Mario Environment 
 ![Mario](images/mario_env.png)
 
