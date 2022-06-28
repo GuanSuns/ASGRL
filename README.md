@@ -1,9 +1,9 @@
 # ASGRL: Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity
-### Official PyTorch implementation of the ASGRL in the ICML 2022 paper: [Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity](https://arxiv.org/abs/2202.02886)
+### Official python implementation of the ASGRL in the ICML 2022 paper: [Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity](https://arxiv.org/abs/2202.02886)
 
 **Note**: The code has been refactored for better readability. If you encounter any problem, feel free email lguan9@asu.edu or submit an issue on Github. 
 
-![overview](images/overview.png)
+<img src="images/overview.png" alt="overview" width="600"/>
 
 
 ### A. Components of ASGRL
@@ -60,9 +60,9 @@
 
 
 ### E. Visualization of the New Household Env (a harder version of the Household Env in the original paper)
-![Mario](images/household_hard.png)	
+<img src="images/household_hard.png" alt="Household" width="200"/>
 
 
 ### F. Visualization of the Mario Env 
-![Mario](images/mario_env.png)
+<img src="images/mario_env.png" alt="Mario" width="450"/>
 
