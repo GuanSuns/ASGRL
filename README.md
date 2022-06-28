@@ -59,7 +59,7 @@
 		- ASGRL managed to solve the task for 6 times (out of 10). We observed some factors that negatively affect the performance: (a) There were a couple of times when ASGRL found a goal-achieving policy for a while, but then as training proceeded, it forgot about this goal-achieving policy and eventually converged to a "bad" policy. One possible reason for this is that the meta-controller failed to adapt effectively to changes in low-level skills. (b) Some easier-to-learn skills already converge before some preceding skills discovered new low-level subgoal state(s).
 
 
-### E. Visualization of the New Household Env (More Challenging)
+### E. Visualization of the New Household Env (a harder version of the Household Env in the original paper)
 ![Mario](images/household_hard.png)	
 
 
