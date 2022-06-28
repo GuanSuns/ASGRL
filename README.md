@@ -37,12 +37,13 @@
 
 	
 ### C. Customize the System
-- General Instructions:
+- **General Instructions**:
 	- To customize the system, you can take our current code (based on the [Mario](https://github.com/GuanSuns/ASGRL/blob/main/env_mario/env_mario.py) environment) as example. 
 	- The example config can be found at the [config](https://github.com/GuanSuns/ASGRL/tree/main/config) directory.
 	- Note that our implementation separates the symbolic planning part and the reinforcement learning part, and this repository only contains the code for the reinforcement learning. So the extracted landmark sequences need to be manually provided in the config class. 
 	- To apply ASGRL in new environments, you also need to provide the function that tells whether certain subgoal/landmark is satisfied. See the ``check_skill_success`` function in the class ``Hierarchical_Diversity_RL`` or ``Curriculum_Hierarchical_Diversity_RL`` for our Mario domain.
-- An Example of Customizing the System for a New Household Environment
+
+- **An Example of Customizing the System for a New Household Environment**
 	- An example of how to apply ASGRL on a new environment can be found at [example](https://github.com/GuanSuns/ASGRL/tree/main/example).
 	- Note that this new Household environment is more challenging the one(s) in the paper:
 		- This new Household env has more rooms, thus making it more difficult to explore.
@@ -53,12 +54,15 @@
 		- There is a charging dock (i.e., the blue block). However, the robot needs to wisely choose the timing to recharge itself. More specifically, the robot should only recharge itself after it unlocks the two purple doors and before it enters the final room.
 		- Hence, the optimal policy for this task should be: pickup the key for the first locked door, unlock the first locked door, return and pickup the key for the second door, go to unlock the second door, head to the charging dock, go to the final room and perform the final task at the destination.
 		- We assume the human knows the structure of this task but doesn't know there are multiple keys. So the extract landmark sequence is: ``pickup-first-key``, ``unlock-door-0``, ``pickup-second-key``, ``unlock-door-1``, ``recharge``, ``at-final-room``, ``at-destination``.
-		- We 
-		
+		- We also provide a reference implementation of the baseline [Landmark-Shaping](https://github.com/GuanSuns/ASGRL/blob/main/example/run_landmark_shaping_baseline.py) and [Vanilla Q-Learning](https://github.com/GuanSuns/ASGRL/blob/main/example/run_q_baseline.py) (Note that the code has been refactored for better readability, please contact the authors if you encounter any runtime problem). 
+		- We ran each algorithm for around 10 times (not a formal experiment). The vanilla Q-Learning never succeeded within 500k env steps, highlighting the need for human symbolic guidance. The Landmark-Shaping never succeeded either. It is biased by the shaping rewards and it gets stuck on several local minima, such as always picking up the nearest (wrong) key, or always heading to the final room without recharging itself.
+		- ASGRL managed to solve the task for 6 times (out of 10). We observed some factors that negatively affect the performance: (a) There were a couple of times when ASGRL found a goal-achieving policy for a while, but then as training proceeded, it forgot about this goal-achieving policy and eventually converged to a "bad" policy. One possible reason for this is that the meta-controller failed to adapt effectively to changes in low-level skills. (b) Some easier-to-learn skills already converge before some preceding skills discovered new low-level subgoal state(s).
+
+
 ### E. Visualization of the New Household Env (More Challenging)
-![Mario](images/mario_env.png)	
+![Mario](images/household_hard.png)	
 
 
-### E. Visualization of the Mario Env 
+### F. Visualization of the Mario Env 
 ![Mario](images/mario_env.png)
 
