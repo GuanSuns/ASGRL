@@ -11,7 +11,12 @@ from utils.grid_renderer import Grid_Renderer
 
 
 class Env_Mario:
-    def __init__(self, use_state=True, info_img=False):
+    def __init__(self, use_state=True, info_img=False, success_reward=0):
+        """
+        Success_reward is 0 by default since in ASGRL & other
+            Planning+RL baselines, the reward is given by the symbolic model (not from the env)
+        But to run Vanilla Q-Learning, success_reward should be set to 1.
+        """
         self.pytorch_img_state = False
         self.info_img = info_img
         # actions: up, down, left, right
@@ -31,7 +36,7 @@ class Env_Mario:
             self.obs_type = np.uint8
         # game config
         self.hard_exploration = True    # whether to make the exploration harder
-        self.success_reward = 0
+        self.success_reward = success_reward
         self.height = 8
         self.width = 11
         self.objects = addict.Dict({
@@ -272,6 +277,7 @@ def main():
     print('starting mario')
     import cv2
     env = Env_Mario(use_state=True, info_img=True)
+    obs = env.reset()
     done = False
     info = None
 

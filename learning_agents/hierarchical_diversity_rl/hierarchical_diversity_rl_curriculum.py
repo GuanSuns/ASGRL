@@ -83,7 +83,7 @@ class Curriculum_Hierarchical_Diversity_RL:
         for linearization in self.landmark_sequences:
             for subgoal in linearization:
                 if subgoal not in self.agents_low:
-                    assert subgoal in self.config.low_agent_class and subgoal in self.config.agent_config
+                    assert subgoal in self.config.low_agent_class and subgoal in self.config.agent_config, f'no agent config for subgoal {subgoal}'
                     self.agents_low[subgoal] = self.config.low_agent_class[subgoal](self.env,
                                                                                     self.config.agent_config[subgoal](),
                                                                                     subgoal_name=subgoal, logger=self.logger)

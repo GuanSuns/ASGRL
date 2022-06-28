@@ -150,8 +150,7 @@ class Q_Learning:
         next_state, reward, done, info = self.env.step(action)
         return next_state, reward, done, info
 
-    @staticmethod
-    def should_add_to_sil(score, done):
+    def should_add_to_sil(self, score, done):
         """ decide whether to add current trajectory to the SIL buffer """
         return done and score > 0
 
