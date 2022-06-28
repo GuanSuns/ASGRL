@@ -1,5 +1,5 @@
 # ASGRL: Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity
-### Official PyTorch implementation of the ASGRL in the ICML 2022 paper: Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity
+### Official PyTorch implementation of the ASGRL in the ICML 2022 paper: [Leveraging Approximate Symbolic Models for Reinforcement Learning via Skill Diversity](https://arxiv.org/abs/2202.02886)
 
 **Note**: The code has been refactored for better readability. If you encounter any problem, feel free email lguan9@asu.edu or submit an issue on Github. 
 
